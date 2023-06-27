@@ -1,3 +1,6 @@
+package ca.sheridancollege.project;
+
+
 // Game.java
 import java.util.Scanner;
 

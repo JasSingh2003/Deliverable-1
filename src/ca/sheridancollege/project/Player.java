@@ -1,10 +1,11 @@
+package ca.sheridancollege.project;
 // Player.java
 import java.util.ArrayList;
 import java.util.List;
 
 public class Player {
-    private final String name;
-    private final List<Card> hand;
+    public final String name;
+    public final List<Card> hand;
 
     public Player(String name) {
         this.name = name;

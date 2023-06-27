@@ -1,3 +1,4 @@
+package ca.sheridancollege.project;
 // Card.java
 public class Card {
     private final String suit;
@@ -26,8 +27,8 @@ public class Card {
         }
     }
 
-    //@Override
-    //public String toString() {
-        //return rank + " of " + suit;
-   // }
+    @Override
+    public String toString() {
+        return rank + " of " + suit;
+    }
 }
