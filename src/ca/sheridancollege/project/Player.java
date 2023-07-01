@@ -1,11 +1,11 @@
 package ca.sheridancollege.project;
-// Player.java
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class Player {
-    public final String name;
-    public final List<Card> hand;
+    protected String name;
+    public List<Card> hand;
 
     public Player(String name) {
         this.name = name;
@@ -38,16 +38,19 @@ public class Player {
 
         return value;
     }
-
-    @Override
+      @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append(name).append("'s hand: ");
+        sb.append("'s hand: ");
         for (Card card : hand) {
             sb.append(card).append(", ");
         }
         sb.delete(sb.length() - 2, sb.length());
         sb.append("\nHand value: ").append(getHandValue());
-        return sb.toString();
+        return   name + "'s " + sb.toString() ;
     }
+    
 }
+
+
+    

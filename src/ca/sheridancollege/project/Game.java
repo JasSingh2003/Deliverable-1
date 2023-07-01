@@ -1,27 +1,23 @@
 package ca.sheridancollege.project;
 
-
-// Game.java
 import java.util.Scanner;
 
 public class Game {
     private final GroupOfCards deck;
     private final Player player;
     private final Player dealer;
-
+    
+    
+    
     public Game() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter your name: ");
+        String name = scanner.nextLine();
         deck = new GroupOfCards();
-        player = new Player("Player");
+        player = new Player(name);
         dealer = new Player("Dealer");
     }
 
-    public void start() {
-        initializeDeck();
-        dealInitialCards();
-        playPlayerTurn();
-        playDealerTurn();
-        determineWinner();
-    }
 
     private void initializeDeck() {
         String[] suits = {"Hearts", "Diamonds", "Clubs", "Spades"};
@@ -29,7 +25,7 @@ public class Game {
 
         for (String suit : suits) {
             for (String rank : ranks) {
-                Card card = new Card(suit, rank);
+                Card card = new CardDrawn(suit, rank);
                 deck.addCard(card);
             }
         }
@@ -81,20 +77,28 @@ public class Game {
         System.out.println(dealer);
 
         if (playerValue > 21) {
-            System.out.println("Player busts. Dealer wins!");
+            System.out.println("Player lost. Dealer wins!");
         } else if (dealerValue > 21) {
-            System.out.println("Dealer busts. Player wins!");
+            System.out.println("Dealer lost." + player + "wins!");
         } else if (playerValue == dealerValue) {
             System.out.println("It's a tie!");
         } else if (playerValue > dealerValue) {
-            System.out.println("Player wins!");
+            System.out.println(player + "wins!");
         } else {
             System.out.println("Dealer wins!");
         }
     }
-
+    
+     public void play() {
+        initializeDeck();
+        dealInitialCards();
+        playPlayerTurn();
+        playDealerTurn();
+        determineWinner();
+    }
+     
     public static void main(String[] args) {
         Game game = new Game();
-        game.start();
+        game.play();
     }
 }
