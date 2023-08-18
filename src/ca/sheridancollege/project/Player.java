@@ -3,24 +3,24 @@ package ca.sheridancollege.project;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Player {
+public class Player {   //declaring name for the player to enter and list of cards.
     protected String name;
     public List<Card> hand;
 
-    public Player(String name) {
+    public Player(String name) {   //constructor for initializing name and cards
         this.name = name;
         hand = new ArrayList<>();
     }
 
-    public void addCardToHand(Card card) {
+    public void addCardToHand(Card card) {    //adding card to hand of player or dealer
         hand.add(card);
     }
 
-    public List<Card> getHand() {
+    public List<Card> getHand() {   //method to return the hand of player or dealer
         return hand;
     }
 
-    public int getHandValue() {
+    public int getHandValue() {    //calculating the value of hand of player and dealer
         int value = 0;
         int numAces = 0;
 
@@ -38,7 +38,7 @@ public class Player {
 
         return value;
     }
-      @Override
+      @Override   //printing out details of the hand and player.
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("'s hand: ");
