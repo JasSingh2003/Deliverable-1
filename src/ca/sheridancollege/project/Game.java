@@ -89,7 +89,7 @@ public class Game {
         }
     }
     
-     public void play() {
+     public void play() {    //method to call all the other methods
         initializeDeck();
         dealInitialCards();
         playPlayerTurn();
@@ -97,7 +97,7 @@ public class Game {
         determineWinner();
     }
      
-    public static void main(String[] args) {
+    public static void main(String[] args) {   //main method to start the game
         Game game = new Game();
         game.play();
     }
