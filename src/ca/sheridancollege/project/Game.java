@@ -3,13 +3,13 @@ package ca.sheridancollege.project;
 import java.util.Scanner;
 
 public class Game {
-    private final GroupOfCards deck;
+    private final GroupOfCards deck;    //declaring all variables using other classes
     private final Player player;
     private final Player dealer;
     
     
     
-    public Game() {
+    public Game() {     //method used create the objects 
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter your name: ");
         String name = scanner.nextLine();
@@ -19,21 +19,21 @@ public class Game {
     }
 
 
-    private void initializeDeck() {
+    private void initializeDeck() {     //makes a new deck of cards
         String[] suits = {"Hearts", "Diamonds", "Clubs", "Spades"};
         String[] ranks = {"Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King"};
 
-        for (String suit : suits) {
+        for (String suit : suits) {     //adds cards to deck
             for (String rank : ranks) {
                 Card card = new CardDrawn(suit, rank);
                 deck.addCard(card);
             }
         }
 
-        deck.shuffle();
+        deck.shuffle();    //method used to shuffle the deck
     }
 
-    private void dealInitialCards() {
+    private void dealInitialCards() {         //Distributes cards to dealer and player
         player.addCardToHand(deck.drawCard());
         dealer.addCardToHand(deck.drawCard());
         player.addCardToHand(deck.drawCard());
@@ -42,7 +42,7 @@ public class Game {
         System.out.println(dealer.getHand().get(0));
     }
 
-    private void playPlayerTurn() {
+    private void playPlayerTurn() {    //allows player to play their turn
         Scanner scanner = new Scanner(System.in);
         while (player.getHandValue() < 21) {
             System.out.print("Do you want to hit (H) or stand (S)? ");
@@ -60,7 +60,7 @@ public class Game {
         System.out.println();
     }
 
-    private void playDealerTurn() {
+    private void playDealerTurn() {    //allows dealer to play their turn
         while (dealer.getHandValue() < 17) {
             dealer.addCardToHand(deck.drawCard());
         }
@@ -68,7 +68,7 @@ public class Game {
         System.out.println();
     }
 
-    private void determineWinner() {
+    private void determineWinner() {     //to determine the winner of the game.
         int playerValue = player.getHandValue();
         int dealerValue = dealer.getHandValue();
 
