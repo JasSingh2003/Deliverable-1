@@ -79,11 +79,11 @@ public class Game {
         if (playerValue > 21) {
             System.out.println("Player lost. Dealer wins!");
         } else if (dealerValue > 21) {
-            System.out.println("Dealer lost." + player + "wins!");
+            System.out.println("Dealer lost. " + player + " wins!");
         } else if (playerValue == dealerValue) {
             System.out.println("It's a tie!");
         } else if (playerValue > dealerValue) {
-            System.out.println(player + "wins!");
+            System.out.println(player + " wins!");
         } else {
             System.out.println("Dealer wins!");
         }
